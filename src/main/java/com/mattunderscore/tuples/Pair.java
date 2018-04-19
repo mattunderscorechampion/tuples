@@ -4,6 +4,8 @@
 
 package com.mattunderscore.tuples;
 
+import java.util.function.Consumer;
+
 /**
  * A 2-tuple.
  *
@@ -24,8 +26,18 @@ public final class Pair<T0, T1> implements V0<T0>, V1<T1> {
     }
 
     @Override
+    public void v0(Consumer<? super T0> consumer) {
+        consumer.accept(v0);
+    }
+
+    @Override
     public T1 v1() {
         return v1;
+    }
+
+    @Override
+    public void v1(Consumer<? super T1> consumer) {
+        consumer.accept(v1);
     }
 
     /**
