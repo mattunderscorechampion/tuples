@@ -51,7 +51,7 @@ public final class PairTest {
     }
 
     @Test
-    public void testMap() {
+    public void testApply() {
         final Pair<Object, String> pair = Pair.of("a", "b");
 
         pair.v0(function);
@@ -59,6 +59,30 @@ public final class PairTest {
 
         pair.v1(function);
         verify(function).apply("b");
+    }
+
+    @Test
+    public void testMapV0() {
+        final Pair<Object, String> pair0 = Pair.of("a", "b");
+        final Pair<Object, String> pair1 = pair0.mapV0(Function.identity());
+
+        assertEquals(pair0, pair1);
+    }
+
+    @Test
+    public void testMapV1() {
+        final Pair<Object, String> pair0 = Pair.of("a", "b");
+        final Pair<Object, String> pair1 = pair0.mapV1(Function.identity());
+
+        assertEquals(pair0, pair1);
+    }
+
+    @Test
+    public void testMap() {
+        final Pair<Object, String> pair0 = Pair.of("a", "b");
+        final Pair<Object, String> pair1 = pair0.map(Function.identity(), Function.identity());
+
+        assertEquals(pair0, pair1);
     }
 
     @Test
