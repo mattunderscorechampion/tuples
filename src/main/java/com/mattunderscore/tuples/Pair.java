@@ -7,6 +7,7 @@ package com.mattunderscore.tuples;
 import static java.util.Objects.requireNonNull;
 
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 /**
  * A 2-tuple.
@@ -33,6 +34,11 @@ public final class Pair<T0, T1> implements V0<T0>, V1<T1> {
     }
 
     @Override
+    public <U> U v0(Function<? super T0, U> function) {
+        return function.apply(v0);
+    }
+
+    @Override
     public T1 v1() {
         return v1;
     }
@@ -40,6 +46,11 @@ public final class Pair<T0, T1> implements V0<T0>, V1<T1> {
     @Override
     public void v1(Consumer<? super T1> consumer) {
         consumer.accept(v1);
+    }
+
+    @Override
+    public <U> U v1(Function<? super T1, U> function) {
+        return function.apply(v1);
     }
 
     @Override

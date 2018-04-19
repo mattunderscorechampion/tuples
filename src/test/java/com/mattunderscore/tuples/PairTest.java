@@ -10,6 +10,7 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.verify;
 
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -27,6 +28,8 @@ public final class PairTest {
 
     @Mock
     private Consumer<Object> consumer;
+    @Mock
+    private Function<Object, Object> function;
 
     @Test
     public void testPair() {
@@ -45,6 +48,17 @@ public final class PairTest {
 
         pair.v1(consumer);
         verify(consumer).accept("b");
+    }
+
+    @Test
+    public void testMap() {
+        final Pair<Object, String> pair = Pair.of("a", "b");
+
+        pair.v0(function);
+        verify(function).apply("a");
+
+        pair.v1(function);
+        verify(function).apply("b");
     }
 
     @Test

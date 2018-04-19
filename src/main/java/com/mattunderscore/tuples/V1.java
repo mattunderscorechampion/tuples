@@ -5,6 +5,7 @@
 package com.mattunderscore.tuples;
 
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 /**
  * Interface for accessing value 1.
@@ -21,4 +22,9 @@ public interface V1<T1> {
      * Pass value 1 to {@code consumer}.
      */
     void v1(Consumer<? super T1> consumer);
+
+    /**
+     * Map value 1 using {@code function} and return the result.
+     */
+    <U> U v1(Function<? super T1, U> function);
 }
