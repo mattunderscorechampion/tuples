@@ -24,7 +24,7 @@ public interface V1<T1> {
     void v1(Consumer<? super T1> consumer);
 
     /**
-     * Map value 1 using {@code function} and return the result.
+     * Apply {@code function} to value 1 and return the result.
      */
     <U> U v1(Function<? super T1, U> function);
 }
