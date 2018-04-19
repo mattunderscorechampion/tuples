@@ -139,4 +139,11 @@ public final class TripleTest {
 
         assertFalse(triple0.equals(triple1));
     }
+
+    @Test
+    public void testEqualsSelf() {
+        final Triple<Object, String, String> triple0 = Triple.of("a", "b", "c");
+
+        assertTrue(triple0.equals(triple0));
+    }
 }

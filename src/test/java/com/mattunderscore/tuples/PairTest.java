@@ -123,4 +123,11 @@ public final class PairTest {
 
         assertFalse(pair0.equals(pair1));
     }
+
+    @Test
+    public void testEqualsSelf() {
+        final Pair<Object, String> pair0 = Pair.of("a", "b");
+
+        assertTrue(pair0.equals(pair0));
+    }
 }
