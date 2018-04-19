@@ -21,10 +21,10 @@ public interface V1<T1> {
     /**
      * Pass value 1 to {@code consumer}.
      */
-    void v1(Consumer<? super T1> consumer);
+    void acceptV1(Consumer<? super T1> consumer);
 
     /**
      * Apply {@code function} to value 1 and return the result.
      */
-    <U> U v1(Function<? super T1, U> function);
+    <U> U applyV1(Function<? super T1, U> function);
 }

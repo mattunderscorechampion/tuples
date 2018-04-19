@@ -40,13 +40,13 @@ public final class PairTest {
     }
 
     @Test
-    public void testConsumer() {
+    public void testAccept() {
         final Pair<Object, String> pair = Pair.of("a", "b");
 
-        pair.v0(consumer);
+        pair.acceptV0(consumer);
         verify(consumer).accept("a");
 
-        pair.v1(consumer);
+        pair.acceptV1(consumer);
         verify(consumer).accept("b");
     }
 
@@ -54,10 +54,10 @@ public final class PairTest {
     public void testApply() {
         final Pair<Object, String> pair = Pair.of("a", "b");
 
-        pair.v0(function);
+        pair.applyV0(function);
         verify(function).apply("a");
 
-        pair.v1(function);
+        pair.applyV1(function);
         verify(function).apply("b");
     }
 

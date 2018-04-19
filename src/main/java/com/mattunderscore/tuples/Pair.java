@@ -29,12 +29,12 @@ public final class Pair<T0, T1> implements V0<T0>, V1<T1> {
     }
 
     @Override
-    public void v0(Consumer<? super T0> consumer) {
+    public void acceptV0(Consumer<? super T0> consumer) {
         consumer.accept(v0);
     }
 
     @Override
-    public <U> U v0(Function<? super T0, U> function) {
+    public <U> U applyV0(Function<? super T0, U> function) {
         return function.apply(v0);
     }
 
@@ -55,12 +55,12 @@ public final class Pair<T0, T1> implements V0<T0>, V1<T1> {
     }
 
     @Override
-    public void v1(Consumer<? super T1> consumer) {
+    public void acceptV1(Consumer<? super T1> consumer) {
         consumer.accept(v1);
     }
 
     @Override
-    public <U> U v1(Function<? super T1, U> function) {
+    public <U> U applyV1(Function<? super T1, U> function) {
         return function.apply(v1);
     }
 
