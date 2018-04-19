@@ -9,7 +9,7 @@ package com.mattunderscore.tuples;
  *
  * @author Matt Champion 19/04/2018
  */
-public final class Pair<T0, T1> {
+public final class Pair<T0, T1> implements V0<T0>, V1<T1> {
     private final T0 v0;
     private final T1 v1;
 
@@ -18,16 +18,12 @@ public final class Pair<T0, T1> {
         this.v1 = v1;
     }
 
-    /**
-     * @return value 0
-     */
+    @Override
     public T0 v0() {
         return v0;
     }
 
-    /**
-     * @return value 1
-     */
+    @Override
     public T1 v1() {
         return v1;
     }
