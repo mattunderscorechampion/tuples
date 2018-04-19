@@ -86,6 +86,13 @@ public final class PairTest {
     }
 
     @Test
+    public void testToString() {
+        final Pair<Object, String> pair = Pair.of("a", "b");
+
+        assertEquals("[a, b]", pair.toString());
+    }
+
+    @Test
     public void testEquals() {
         final Pair<Object, String> pair0 = Pair.of("a", "b");
         final Pair<Object, String> pair1 = Pair.of("a", "b");

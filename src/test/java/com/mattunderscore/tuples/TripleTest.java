@@ -102,6 +102,13 @@ public final class TripleTest {
     }
 
     @Test
+    public void testToString() {
+        final Triple<Object, String, String> triple = Triple.of("a", "b", "c");
+
+        assertEquals("[a, b, c]", triple.toString());
+    }
+
+    @Test
     public void testEquals() {
         final Triple<Object, String, String> triple0 = Triple.of("a", "b", "c");
         final Triple<Object, String, String> triple1 = Triple.of("a", "b", "c");

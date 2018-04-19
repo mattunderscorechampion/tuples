@@ -108,6 +108,11 @@ public final class Pair<T0, T1> implements V0<T0>, V1<T1> {
         return result;
     }
 
+    @Override
+    public String toString() {
+        return "[" + v0 + ", " + v1 + "]";
+    }
+
     /**
      * @return a new pair
      */

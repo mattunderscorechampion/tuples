@@ -143,6 +143,11 @@ public final class Triple<T0, T1, T2> implements V0<T0>, V1<T1>, V2<T2> {
         return result;
     }
 
+    @Override
+    public String toString() {
+        return "[" + v0 + ", " + v1 + ", " + v2 + "]";
+    }
+
     /**
      * @return a new pair
      */
