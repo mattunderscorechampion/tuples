@@ -42,11 +42,11 @@ public final class Triple<T0, T1, T2> implements V0<T0>, V1<T1>, V2<T2> {
     }
 
     /**
-     * Map value to new pair.
+     * Map value 0 to new triple.
      *
      * @param function function to apply to value 0
      * @param <U> the new type of value 0
-     * @return the new pair
+     * @return the new triple
      */
     public <U> Triple<U, T1, T2> mapV0(Function<? super T0, U> function) {
         return map(function, identity(), identity());
@@ -68,11 +68,11 @@ public final class Triple<T0, T1, T2> implements V0<T0>, V1<T1>, V2<T2> {
     }
 
     /**
-     * Map value to new pair.
+     * Map value 1 to new triple.
      *
      * @param function function to apply to value 1
      * @param <U> the new type of value 1
-     * @return the new pair
+     * @return the new triple
      */
     public <U> Triple<T0, U, T2> mapV1(Function<? super T1, U> function) {
         return map(identity(), function, identity());
@@ -94,18 +94,18 @@ public final class Triple<T0, T1, T2> implements V0<T0>, V1<T1>, V2<T2> {
     }
 
     /**
-     * Map value to new pair.
+     * Map value 2 to new triple.
      *
      * @param function function to apply to value 2
      * @param <U> the new type of value 2
-     * @return the new pair
+     * @return the new triple
      */
     public <U> Triple<T0, T1, U> mapV2(Function<? super T2, U> function) {
         return map(identity(), identity(), function);
     }
 
     /**
-     * Map value to new pair.
+     * Map all values to new triple.
      *
      * @param function0 function0 to apply to value 0
      * @param function1 function1 to apply to value 1
@@ -113,7 +113,7 @@ public final class Triple<T0, T1, T2> implements V0<T0>, V1<T1>, V2<T2> {
      * @param <U0> the new type of value 0
      * @param <U1> the new type of value 1
      * @param <U2> the new type of value 2
-     * @return the new pair
+     * @return the new triple
      */
     public <U0, U1, U2> Triple<U0, U1, U2> map(
             Function<? super T0, U0> function0,

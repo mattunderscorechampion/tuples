@@ -39,7 +39,7 @@ public final class Pair<T0, T1> implements V0<T0>, V1<T1> {
     }
 
     /**
-     * Map value to new pair.
+     * Map value 0 to new pair.
      *
      * @param function function to apply to value 0
      * @param <U> the new type of value 0
@@ -65,7 +65,7 @@ public final class Pair<T0, T1> implements V0<T0>, V1<T1> {
     }
 
     /**
-     * Map value to new pair.
+     * Map value 1 to new pair.
      *
      * @param function function to apply to value 1
      * @param <U> the new type of value 1
@@ -76,7 +76,7 @@ public final class Pair<T0, T1> implements V0<T0>, V1<T1> {
     }
 
     /**
-     * Map value to new pair.
+     * Map all values to new pair.
      *
      * @param function0 function0 to apply to value 0
      * @param function1 function1 to apply to value 1
