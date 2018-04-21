@@ -81,7 +81,7 @@ public final class ContainerTest {
     @Test
     public void testEquals() {
         final Container<Object> container0 = Container.of("a");
-        final Pair<Object, String> container1 = Pair.of("a", "b");
+        final Container<Object> container1 = Container.of("a");
 
         assertTrue(container0.equals(container1));
         assertTrue(container1.equals(container0));
