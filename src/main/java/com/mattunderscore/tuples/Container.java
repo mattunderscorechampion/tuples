@@ -67,8 +67,8 @@ public final class Container<T0> implements V0<T0> {
             return false;
         }
 
-        final Container<?> pair = (Container<?>) o;
-        return v0.equals(pair.v0);
+        final Container<?> container = (Container<?>) o;
+        return v0.equals(container.v0);
     }
 
     @Override

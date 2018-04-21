@@ -131,8 +131,8 @@ public final class Triple<T0, T1, T2> implements V0<T0>, V1<T1>, V2<T2> {
             return false;
         }
 
-        final Triple<?, ?, ?> pair = (Triple<?, ?, ?>) o;
-        return v0.equals(pair.v0) && v1.equals(pair.v1) && v2.equals(pair.v2);
+        final Triple<?, ?, ?> triple = (Triple<?, ?, ?>) o;
+        return v0.equals(triple.v0) && v1.equals(triple.v1) && v2.equals(triple.v2);
     }
 
     @Override
@@ -149,7 +149,7 @@ public final class Triple<T0, T1, T2> implements V0<T0>, V1<T1>, V2<T2> {
     }
 
     /**
-     * @return a new pair
+     * @return a new triple
      */
     public static <T0, T1, T2, U0 extends T0, U1 extends T1, U2 extends T2> Triple<T0, T1, T2> of(U0 v0, U1 v1, U2 v2) {
         return new Triple<>(v0, v1, v2);
