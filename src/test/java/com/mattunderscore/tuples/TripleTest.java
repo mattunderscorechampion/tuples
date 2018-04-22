@@ -24,8 +24,11 @@ import org.mockito.junit.MockitoRule;
  * @author Matt Champion 19/04/2018
  */
 public final class TripleTest {
+    /**
+     * Mockito rule.
+     */
     @Rule
-    public MockitoRule mockitoRule = MockitoJUnit.rule();
+    public final MockitoRule mockitoRule = MockitoJUnit.rule();
 
     @Mock
     private Consumer<Object> consumer;

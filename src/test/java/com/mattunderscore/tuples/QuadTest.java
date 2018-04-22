@@ -24,8 +24,11 @@ import org.mockito.junit.MockitoRule;
  * @author Matt Champion 21/04/2018
  */
 public final class QuadTest {
+    /**
+     * Mockito rule.
+     */
     @Rule
-    public MockitoRule mockitoRule = MockitoJUnit.rule();
+    public final MockitoRule mockitoRule = MockitoJUnit.rule();
 
     @Mock
     private Consumer<Object> consumer;
