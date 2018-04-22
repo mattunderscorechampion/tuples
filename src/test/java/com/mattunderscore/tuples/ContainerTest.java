@@ -35,6 +35,9 @@ public final class ContainerTest {
     @Mock
     private Function<Object, Object> function;
 
+    /**
+     * Test value access.
+     */
     @Test
     public void testAccess() {
         final Container<Object> container = Container.of("a");
@@ -42,6 +45,9 @@ public final class ContainerTest {
         assertEquals("a", container.v0());
     }
 
+    /**
+     * Test value consumers.
+     */
     @Test
     public void testAccept() {
         final Container<Object> container = Container.of("a");
@@ -50,6 +56,9 @@ public final class ContainerTest {
         verify(consumer).accept("a");
     }
 
+    /**
+     * Test applying functions to values.
+     */
     @Test
     public void testApply() {
         final Container<Object> container = Container.of("a");
@@ -58,6 +67,9 @@ public final class ContainerTest {
         verify(function).apply("a");
     }
 
+    /**
+     * Test mapping value 0.
+     */
     @Test
     public void testMapV0() {
         final Container<Object> container0 = Container.of("a");
@@ -66,6 +78,9 @@ public final class ContainerTest {
         assertEquals(container0, container1);
     }
 
+    /**
+     * Test mapping all values.
+     */
     @Test
     public void testMap() {
         final Container<Object> container0 = Container.of("a");
@@ -74,6 +89,9 @@ public final class ContainerTest {
         assertEquals(container0, container1);
     }
 
+    /**
+     * Test toString implementation.
+     */
     @Test
     public void testToString() {
         final Container<Object> container = Container.of("a");
@@ -81,6 +99,9 @@ public final class ContainerTest {
         assertEquals("[a]", container.toString());
     }
 
+    /**
+     * Test two distinct objects are equal.
+     */
     @Test
     public void testEquals() {
         final Container<Object> container0 = Container.of("a");
@@ -91,6 +112,9 @@ public final class ContainerTest {
         assertEquals(container0.hashCode(), container1.hashCode());
     }
 
+    /**
+     * Test not equal to null.
+     */
     @Test
     public void testNotEqualsNull() {
         final Container<Object> container0 = Container.of("a");
@@ -98,6 +122,9 @@ public final class ContainerTest {
         assertFalse(container0.equals(null));
     }
 
+    /**
+     * Test not equal to object of different type.
+     */
     @Test
     public void testNotEqualsObject() {
         final Container<Object> container0 = Container.of("a");
@@ -105,6 +132,9 @@ public final class ContainerTest {
         assertFalse(container0.equals(new Object()));
     }
 
+    /**
+     * Test not equal to container with different values.
+     */
     @Test
     public void testNotEqualsDifferent() {
         final Container<Object> container0 = Container.of("a");
@@ -113,6 +143,9 @@ public final class ContainerTest {
         assertFalse(container0.equals(container1));
     }
 
+    /**
+     * Test object equals self.
+     */
     @Test
     public void testEqualsSelf() {
         final Container<Object> container0 = Container.of("a");

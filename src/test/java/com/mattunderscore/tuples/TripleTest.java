@@ -35,8 +35,11 @@ public final class TripleTest {
     @Mock
     private Function<Object, Object> function;
 
+    /**
+     * Test value access.
+     */
     @Test
-    public void testPair() {
+    public void testAccess() {
         final Triple<Object, String, String> triple = Triple.of("a", "b", "c");
 
         assertEquals("a", triple.v0());
@@ -44,6 +47,9 @@ public final class TripleTest {
         assertEquals("c", triple.v2());
     }
 
+    /**
+     * Test value consumers.
+     */
     @Test
     public void testAccept() {
         final Triple<Object, String, String> triple = Triple.of("a", "b", "c");
@@ -58,6 +64,9 @@ public final class TripleTest {
         verify(consumer).accept("c");
     }
 
+    /**
+     * Test applying functions to values.
+     */
     @Test
     public void testApply() {
         final Triple<Object, String, String> triple = Triple.of("a", "b", "c");
@@ -72,6 +81,9 @@ public final class TripleTest {
         verify(function).apply("c");
     }
 
+    /**
+     * Test mapping value 0.
+     */
     @Test
     public void testMapV0() {
         final Triple<Object, String, String> triple0 = Triple.of("a", "b", "c");
@@ -80,6 +92,9 @@ public final class TripleTest {
         assertEquals(triple0, triple1);
     }
 
+    /**
+     * Test mapping value 1.
+     */
     @Test
     public void testMapV1() {
         final Triple<Object, String, String> triple0 = Triple.of("a", "b", "c");
@@ -88,6 +103,9 @@ public final class TripleTest {
         assertEquals(triple0, triple1);
     }
 
+    /**
+     * Test mapping value 2.
+     */
     @Test
     public void testMapV2() {
         final Triple<Object, String, String> triple0 = Triple.of("a", "b", "c");
@@ -96,6 +114,9 @@ public final class TripleTest {
         assertEquals(triple0, triple1);
     }
 
+    /**
+     * Test mapping all values.
+     */
     @Test
     public void testMap() {
         final Triple<Object, String, String> triple0 = Triple.of("a", "b", "c");
@@ -104,6 +125,9 @@ public final class TripleTest {
         assertEquals(triple0, triple1);
     }
 
+    /**
+     * Test toString implementation.
+     */
     @Test
     public void testToString() {
         final Triple<Object, String, String> triple = Triple.of("a", "b", "c");
@@ -111,6 +135,9 @@ public final class TripleTest {
         assertEquals("[a, b, c]", triple.toString());
     }
 
+    /**
+     * Test two distinct objects are equal.
+     */
     @Test
     public void testEquals() {
         final Triple<Object, String, String> triple0 = Triple.of("a", "b", "c");
@@ -121,6 +148,9 @@ public final class TripleTest {
         assertEquals(triple0.hashCode(), triple1.hashCode());
     }
 
+    /**
+     * Test not equal to null.
+     */
     @Test
     public void testNotEqualsNull() {
         final Triple<Object, String, String> triple0 = Triple.of("a", "b", "c");
@@ -128,6 +158,9 @@ public final class TripleTest {
         assertFalse(triple0.equals(null));
     }
 
+    /**
+     * Test not equal to object of different type.
+     */
     @Test
     public void testNotEqualsObject() {
         final Triple<Object, String, String> triple0 = Triple.of("a", "b", "c");
@@ -135,6 +168,9 @@ public final class TripleTest {
         assertFalse(triple0.equals(new Object()));
     }
 
+    /**
+     * Test not equal to container with different values.
+     */
     @Test
     public void testNotEqualsDifferent() {
         final Triple<Object, String, String> triple0 = Triple.of("a", "b", "c");
@@ -143,6 +179,9 @@ public final class TripleTest {
         assertFalse(triple0.equals(triple1));
     }
 
+    /**
+     * Test object equals self.
+     */
     @Test
     public void testEqualsSelf() {
         final Triple<Object, String, String> triple0 = Triple.of("a", "b", "c");

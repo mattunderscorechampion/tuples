@@ -34,14 +34,20 @@ public final class PairTest {
     @Mock
     private Function<Object, Object> function;
 
+    /**
+     * Test value access.
+     */
     @Test
-    public void testPair() {
+    public void testAccess() {
         final Pair<Object, String> pair = Pair.of("a", "b");
 
         assertEquals("a", pair.v0());
         assertEquals("b", pair.v1());
     }
 
+    /**
+     * Test value consumers.
+     */
     @Test
     public void testAccept() {
         final Pair<Object, String> pair = Pair.of("a", "b");
@@ -53,6 +59,9 @@ public final class PairTest {
         verify(consumer).accept("b");
     }
 
+    /**
+     * Test applying functions to values.
+     */
     @Test
     public void testApply() {
         final Pair<Object, String> pair = Pair.of("a", "b");
@@ -64,6 +73,9 @@ public final class PairTest {
         verify(function).apply("b");
     }
 
+    /**
+     * Test mapping value 0.
+     */
     @Test
     public void testMapV0() {
         final Pair<Object, String> pair0 = Pair.of("a", "b");
@@ -72,6 +84,9 @@ public final class PairTest {
         assertEquals(pair0, pair1);
     }
 
+    /**
+     * Test mapping value 1.
+     */
     @Test
     public void testMapV1() {
         final Pair<Object, String> pair0 = Pair.of("a", "b");
@@ -80,6 +95,9 @@ public final class PairTest {
         assertEquals(pair0, pair1);
     }
 
+    /**
+     * Test mapping all values.
+     */
     @Test
     public void testMap() {
         final Pair<Object, String> pair0 = Pair.of("a", "b");
@@ -88,6 +106,9 @@ public final class PairTest {
         assertEquals(pair0, pair1);
     }
 
+    /**
+     * Test toString implementation.
+     */
     @Test
     public void testToString() {
         final Pair<Object, String> pair = Pair.of("a", "b");
@@ -95,6 +116,9 @@ public final class PairTest {
         assertEquals("[a, b]", pair.toString());
     }
 
+    /**
+     * Test two distinct objects are equal.
+     */
     @Test
     public void testEquals() {
         final Pair<Object, String> pair0 = Pair.of("a", "b");
@@ -105,6 +129,9 @@ public final class PairTest {
         assertEquals(pair0.hashCode(), pair1.hashCode());
     }
 
+    /**
+     * Test not equal to null.
+     */
     @Test
     public void testNotEqualsNull() {
         final Pair<Object, String> pair0 = Pair.of("a", "b");
@@ -112,6 +139,9 @@ public final class PairTest {
         assertFalse(pair0.equals(null));
     }
 
+    /**
+     * Test not equal to object of different type.
+     */
     @Test
     public void testNotEqualsObject() {
         final Pair<Object, String> pair0 = Pair.of("a", "b");
@@ -119,6 +149,9 @@ public final class PairTest {
         assertFalse(pair0.equals(new Object()));
     }
 
+    /**
+     * Test not equal to container with different values.
+     */
     @Test
     public void testNotEqualsDifferent() {
         final Pair<Object, String> pair0 = Pair.of("a", "b");
@@ -127,6 +160,9 @@ public final class PairTest {
         assertFalse(pair0.equals(pair1));
     }
 
+    /**
+     * Test object equals self.
+     */
     @Test
     public void testEqualsSelf() {
         final Pair<Object, String> pair0 = Pair.of("a", "b");

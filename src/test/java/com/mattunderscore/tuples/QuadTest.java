@@ -35,8 +35,11 @@ public final class QuadTest {
     @Mock
     private Function<Object, Object> function;
 
+    /**
+     * Test value access.
+     */
     @Test
-    public void testPair() {
+    public void testAccess() {
         final Quad<Object, String, String, String> quad = Quad.of("a", "b", "c", "d");
 
         assertEquals("a", quad.v0());
@@ -45,6 +48,9 @@ public final class QuadTest {
         assertEquals("d", quad.v3());
     }
 
+    /**
+     * Test value consumers.
+     */
     @Test
     public void testAccept() {
         final Quad<Object, String, String, String> quad = Quad.of("a", "b", "c", "d");
@@ -62,6 +68,9 @@ public final class QuadTest {
         verify(consumer).accept("d");
     }
 
+    /**
+     * Test applying functions to values.
+     */
     @Test
     public void testApply() {
         final Quad<Object, String, String, String> quad = Quad.of("a", "b", "c", "d");
@@ -79,6 +88,9 @@ public final class QuadTest {
         verify(function).apply("d");
     }
 
+    /**
+     * Test mapping value 0.
+     */
     @Test
     public void testMapV0() {
         final Quad<Object, String, String, String> quad0 = Quad.of("a", "b", "c", "d");
@@ -87,6 +99,9 @@ public final class QuadTest {
         assertEquals(quad0, quad1);
     }
 
+    /**
+     * Test mapping value 1.
+     */
     @Test
     public void testMapV1() {
         final Quad<Object, String, String, String> quad0 = Quad.of("a", "b", "c", "d");
@@ -95,6 +110,9 @@ public final class QuadTest {
         assertEquals(quad0, quad1);
     }
 
+    /**
+     * Test mapping value 2.
+     */
     @Test
     public void testMapV2() {
         final Quad<Object, String, String, String> quad0 = Quad.of("a", "b", "c", "d");
@@ -103,6 +121,9 @@ public final class QuadTest {
         assertEquals(quad0, quad1);
     }
 
+    /**
+     * Test mapping value 3.
+     */
     @Test
     public void testMapV3() {
         final Quad<Object, String, String, String> quad0 = Quad.of("a", "b", "c", "d");
@@ -111,6 +132,9 @@ public final class QuadTest {
         assertEquals(quad0, quad1);
     }
 
+    /**
+     * Test mapping all values.
+     */
     @Test
     public void testMap() {
         final Quad<Object, String, String, String> quad0 = Quad.of("a", "b", "c", "d");
@@ -120,6 +144,9 @@ public final class QuadTest {
         assertEquals(quad0, quad1);
     }
 
+    /**
+     * Test toString implementation.
+     */
     @Test
     public void testToString() {
         final Quad<Object, String, String, String> quad = Quad.of("a", "b", "c", "d");
@@ -127,6 +154,9 @@ public final class QuadTest {
         assertEquals("[a, b, c, d]", quad.toString());
     }
 
+    /**
+     * Test two distinct objects are equal.
+     */
     @Test
     public void testEquals() {
         final Quad<Object, String, String, String> quad0 = Quad.of("a", "b", "c", "d");
@@ -137,6 +167,9 @@ public final class QuadTest {
         assertEquals(quad0.hashCode(), quad1.hashCode());
     }
 
+    /**
+     * Test not equal to null.
+     */
     @Test
     public void testNotEqualsNull() {
         final Quad<Object, String, String, String> quad0 = Quad.of("a", "b", "c", "d");
@@ -144,6 +177,9 @@ public final class QuadTest {
         assertFalse(quad0.equals(null));
     }
 
+    /**
+     * Test not equal to object of different type.
+     */
     @Test
     public void testNotEqualsObject() {
         final Quad<Object, String, String, String> quad0 = Quad.of("a", "b", "c", "d");
@@ -151,6 +187,9 @@ public final class QuadTest {
         assertFalse(quad0.equals(new Object()));
     }
 
+    /**
+     * Test not equal to container with different values.
+     */
     @Test
     public void testNotEqualsDifferent() {
         final Quad<Object, String, String, String> quad0 = Quad.of("a", "b", "c", "d");
@@ -159,6 +198,9 @@ public final class QuadTest {
         assertFalse(quad0.equals(quad1));
     }
 
+    /**
+     * Test object equals self.
+     */
     @Test
     public void testEqualsSelf() {
         final Quad<Object, String, String, String> quad0 = Quad.of("a", "b", "c", "d");
