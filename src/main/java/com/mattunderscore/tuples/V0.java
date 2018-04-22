@@ -10,6 +10,7 @@ import java.util.function.Function;
 /**
  * Interface for accessing value 0.
  *
+ * @param <T0> the type of value 0
  * @author Matt Champion 19/04/2018
  */
 public interface V0<T0> {

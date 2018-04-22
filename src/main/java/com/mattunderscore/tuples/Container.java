@@ -12,6 +12,7 @@ import java.util.function.Function;
 /**
  * A 1-tuple.
  *
+ * @param <T0> the type of value 0
  * @author Matt Champion 20/04/2018
  */
 public final class Container<T0> implements V0<T0> {

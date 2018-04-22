@@ -12,6 +12,8 @@ import java.util.function.Function;
 /**
  * A 2-tuple.
  *
+ * @param <T0> the type of value 0
+ * @param <T1> the type of value 1
  * @author Matt Champion 19/04/2018
  */
 public final class Pair<T0, T1> implements V0<T0>, V1<T1> {

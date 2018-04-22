@@ -10,6 +10,7 @@ import java.util.function.Function;
 /**
  * Interface for accessing value 2.
  *
+ * @param <T2> the type of value 2
  * @author Matt Champion 20/04/2018
  */
 public interface V2<T2> {
