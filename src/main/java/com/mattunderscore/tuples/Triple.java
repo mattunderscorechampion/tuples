@@ -110,9 +110,9 @@ public final class Triple<T0, T1, T2> implements V0<T0>, V1<T1>, V2<T2> {
     /**
      * Map all values to new triple.
      *
-     * @param function0 function0 to apply to value 0
-     * @param function1 function1 to apply to value 1
-     * @param function2 function2 to apply to value 2
+     * @param function0 function to apply to value 0
+     * @param function1 function to apply to value 1
+     * @param function2 function to apply to value 2
      * @param <U0> the new type of value 0
      * @param <U1> the new type of value 1
      * @param <U2> the new type of value 2

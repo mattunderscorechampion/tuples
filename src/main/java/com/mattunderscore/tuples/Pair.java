@@ -80,8 +80,8 @@ public final class Pair<T0, T1> implements V0<T0>, V1<T1> {
     /**
      * Map all values to new pair.
      *
-     * @param function0 function0 to apply to value 0
-     * @param function1 function1 to apply to value 1
+     * @param function0 function to apply to value 0
+     * @param function1 function to apply to value 1
      * @param <U0> the new type of value 0
      * @param <U1> the new type of value 1
      * @return the new pair

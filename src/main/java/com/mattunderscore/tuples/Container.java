@@ -51,7 +51,7 @@ public final class Container<T0> implements V0<T0> {
     /**
      * Map value 0 to new container.
      *
-     * @param function0 function0 to apply to value 0
+     * @param function0 function to apply to value 0
      * @param <U0> the new type of value 0
      * @return the new container
      */

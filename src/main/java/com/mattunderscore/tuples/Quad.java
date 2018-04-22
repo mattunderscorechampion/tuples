@@ -139,10 +139,10 @@ public final class Quad<T0, T1, T2, T3> implements V0<T0>, V1<T1>, V2<T2>, V3<T3
     /**
      * Map all values to new quad.
      *
-     * @param function0 function0 to apply to value 0
-     * @param function1 function1 to apply to value 1
-     * @param function2 function2 to apply to value 2
-     * @param function2 function3 to apply to value 3
+     * @param function0 function to apply to value 0
+     * @param function1 function to apply to value 1
+     * @param function2 function to apply to value 2
+     * @param function3 function to apply to value 3
      * @param <U0> the new type of value 0
      * @param <U1> the new type of value 1
      * @param <U2> the new type of value 2
