@@ -33,6 +33,7 @@ public final class NTuple {
      * @throws ClassCastException if the expected type is not the actual type
      * @throws IndexOutOfBoundsException if the arity is wrong
      */
+    @SuppressWarnings("unchecked")
     public <T> T v(int i) {
         return (T) values[i];
     }
