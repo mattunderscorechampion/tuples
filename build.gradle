@@ -4,6 +4,7 @@ apply plugin: 'checkstyle'
 apply plugin: 'jacoco'
 apply plugin: 'project-report'
 apply plugin: 'pmd'
+apply plugin: 'findbugs'
 
 group = 'com.mattunderscore.tuples'
 version = '0.0.1-SNAPSHOT'
