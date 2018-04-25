@@ -7,6 +7,7 @@ package com.mattunderscore.tuples;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static org.mockito.Mockito.verify;
 
 import java.util.function.Consumer;
@@ -53,7 +54,8 @@ public final class NTupleTest {
     public void testAccessWrongArity() {
         final NTuple tuple = NTuple.of("a", "b");
 
-        tuple.v(3);
+        final Object v = tuple.v(3);
+        fail("Exception expected when returning " + v);
     }
 
     /**
@@ -63,7 +65,8 @@ public final class NTupleTest {
     public void testAccessWrongType() {
         final NTuple tuple = NTuple.of("a", "b");
 
-        final Integer integer = tuple.v(0);
+        final Integer v = tuple.v(0);
+        fail("Exception expected when returning " + v);
     }
 
     /**
