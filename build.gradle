@@ -38,5 +38,11 @@ jacocoTestReport {
 }
 
 tasks.withType(JavaCompile) {
-    options.compilerArgs << "-Xlint:all" << "-Werror"
+    inputs.property("moduleName", "com.mattunderscore.tuples")
+    options.compilerArgs << "-Xlint:all" << "-Werror" << "--module-path" << classpath.asPath
+}
+
+tasks.withType(Checkstyle) {
+    source 'src/main/java'
+    exclude 'module-info.java'
 }
