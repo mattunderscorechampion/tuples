@@ -4,8 +4,7 @@
 
 package com.mattunderscore.tuples;
 
-import static java.util.Objects.requireNonNull;
-
+import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
@@ -21,8 +20,8 @@ public final class Pair<T0, T1> implements V0<T0>, V1<T1> {
     private final T1 v1;
 
     /*package*/ Pair(T0 v0, T1 v1) {
-        this.v0 = requireNonNull(v0);
-        this.v1 = requireNonNull(v1);
+        this.v0 = v0;
+        this.v1 = v1;
     }
 
     @Override
@@ -95,19 +94,18 @@ public final class Pair<T0, T1> implements V0<T0>, V1<T1> {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        else if (o == null || getClass() != o.getClass()) {
             return false;
         }
-
-        final Pair<?, ?> pair = (Pair<?, ?>) o;
-        return v0.equals(pair.v0) && v1.equals(pair.v1);
+        else {
+            final Pair<?, ?> pair = (Pair<?, ?>) o;
+            return Objects.equals(v0, pair.v0) && Objects.equals(v1, pair.v1);
+        }
     }
 
     @Override
     public int hashCode() {
-        int result = v0.hashCode();
-        result = 31 * result + v1.hashCode();
-        return result;
+        return Objects.hash(v0, v1);
     }
 
     @Override

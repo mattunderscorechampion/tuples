@@ -4,19 +4,19 @@
 
 package com.mattunderscore.tuples;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.verify;
-
-import java.util.function.Consumer;
-import java.util.function.Function;
-
 import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
+
+import java.util.function.Consumer;
+import java.util.function.Function;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.verify;
 
 /**
  * Unit test for {@link Pair}.
@@ -130,6 +130,19 @@ public final class PairTest {
     }
 
     /**
+     * Test two distinct objects wrapping null are equal.
+     */
+    @Test
+    public void testEqualsWrappingNull() {
+        final Pair<Object, String> pair0 = Pair.of(null, "b");
+        final Pair<Object, String> pair1 = Pair.of(null, "b");
+
+        assertTrue(pair0.equals(pair1));
+        assertTrue(pair1.equals(pair0));
+        assertEquals(pair0.hashCode(), pair1.hashCode());
+    }
+
+    /**
      * Test not equal to null.
      */
     @Test
@@ -156,6 +169,17 @@ public final class PairTest {
     public void testNotEqualsDifferent() {
         final Pair<Object, String> pair0 = Pair.of("a", "b");
         final Pair<Object, String> pair1 = Pair.of("a", "c");
+
+        assertFalse(pair0.equals(pair1));
+    }
+
+    /**
+     * Test not equal to container with different , one null.
+     */
+    @Test
+    public void testNotEqualsDifferentWrappingNull() {
+        final Pair<Object, String> pair0 = Pair.of("a", "b");
+        final Pair<Object, String> pair1 = Pair.of("a", null);
 
         assertFalse(pair0.equals(pair1));
     }
