@@ -4,11 +4,11 @@
 
 package com.mattunderscore.tuples;
 
-import static java.util.Objects.requireNonNull;
-import static java.util.function.Function.identity;
-
+import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Function;
+
+import static java.util.function.Function.identity;
 
 /**
  * A 4-tuple.
@@ -26,10 +26,10 @@ public final class Quad<T0, T1, T2, T3> implements V0<T0>, V1<T1>, V2<T2>, V3<T3
     private final T3 v3;
 
     /*package*/ Quad(T0 v0, T1 v1, T2 v2, T3 v3) {
-        this.v0 = requireNonNull(v0);
-        this.v1 = requireNonNull(v1);
-        this.v2 = requireNonNull(v2);
-        this.v3 = requireNonNull(v3);
+        this.v0 = v0;
+        this.v1 = v1;
+        this.v2 = v2;
+        this.v3 = v3;
     }
 
     @Override
@@ -167,16 +167,15 @@ public final class Quad<T0, T1, T2, T3> implements V0<T0>, V1<T1>, V2<T2>, V3<T3
         }
 
         final Quad<?, ?, ?, ?> quad = (Quad<?, ?, ?, ?>) o;
-        return v0.equals(quad.v0) && v1.equals(quad.v1) && v2.equals(quad.v2) && v3.equals(quad.v3);
+        return Objects.equals(v0, quad.v0) &&
+            Objects.equals(v1, quad.v1) &&
+            Objects.equals(v2, quad.v2) &&
+            Objects.equals(v3, quad.v3);
     }
 
     @Override
     public int hashCode() {
-        int result = v0.hashCode();
-        result = 31 * result + v1.hashCode();
-        result = 31 * result + v2.hashCode();
-        result = 31 * result + v3.hashCode();
-        return result;
+        return Objects.hash(v0, v1, v2, v3);
     }
 
     @Override

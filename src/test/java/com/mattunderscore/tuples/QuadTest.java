@@ -4,19 +4,19 @@
 
 package com.mattunderscore.tuples;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.verify;
-
-import java.util.function.Consumer;
-import java.util.function.Function;
-
 import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
+
+import java.util.function.Consumer;
+import java.util.function.Function;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.verify;
 
 /**
  * Unit test for {@link Quad}.
@@ -168,6 +168,19 @@ public final class QuadTest {
     }
 
     /**
+     * Test two distinct objects wrapping null are equal.
+     */
+    @Test
+    public void testEqualsWrappingNull() {
+        final Quad<Object, String, String, String> quad0 = Quad.of("a", "b", "c", null);
+        final Quad<Object, String, String, String> quad1 = Quad.of("a", "b", "c", null);
+
+        assertTrue(quad0.equals(quad1));
+        assertTrue(quad1.equals(quad0));
+        assertEquals(quad0.hashCode(), quad1.hashCode());
+    }
+
+    /**
      * Test not equal to null.
      */
     @Test
@@ -194,6 +207,17 @@ public final class QuadTest {
     public void testNotEqualsDifferent() {
         final Quad<Object, String, String, String> quad0 = Quad.of("a", "b", "c", "d");
         final Quad<Object, String, String, String> quad1 = Quad.of("a", "b", "c", "e");
+
+        assertFalse(quad0.equals(quad1));
+    }
+
+    /**
+     * Test not equal to container with different values, one null.
+     */
+    @Test
+    public void testNotEqualsDifferentWrappingNull() {
+        final Quad<Object, String, String, String> quad0 = Quad.of("a", "b", "c", "d");
+        final Quad<Object, String, String, String> quad1 = Quad.of("a", "b", "c", null);
 
         assertFalse(quad0.equals(quad1));
     }
