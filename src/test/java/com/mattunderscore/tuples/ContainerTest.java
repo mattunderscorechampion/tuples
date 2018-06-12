@@ -113,6 +113,19 @@ public final class ContainerTest {
     }
 
     /**
+     * Test two distinct objects wrapping null are equal.
+     */
+    @Test
+    public void testEqualsWrappingNull() {
+        final Container<Object> container0 = Container.of(null);
+        final Container<Object> container1 = Container.of(null);
+
+        assertTrue(container0.equals(container1));
+        assertTrue(container1.equals(container0));
+        assertEquals(container0.hashCode(), container1.hashCode());
+    }
+
+    /**
      * Test not equal to null.
      */
     @Test
@@ -139,6 +152,17 @@ public final class ContainerTest {
     public void testNotEqualsDifferent() {
         final Container<Object> container0 = Container.of("a");
         final Container<Object> container1 = Container.of("b");
+
+        assertFalse(container0.equals(container1));
+    }
+
+    /**
+     * Test not equal to container with different values, one null.
+     */
+    @Test
+    public void testNotEqualsDifferentWrappingNull() {
+        final Container<Object> container0 = Container.of("a");
+        final Container<Object> container1 = Container.of(null);
 
         assertFalse(container0.equals(container1));
     }

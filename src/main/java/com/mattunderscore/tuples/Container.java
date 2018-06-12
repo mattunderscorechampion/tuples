@@ -4,8 +4,6 @@
 
 package com.mattunderscore.tuples;
 
-import static java.util.Objects.requireNonNull;
-
 import java.util.function.Consumer;
 import java.util.function.Function;
 
@@ -19,7 +17,7 @@ public final class Container<T0> implements V0<T0> {
     private final T0 v0;
 
     /*package*/ Container(T0 v0) {
-        this.v0 = requireNonNull(v0);
+        this.v0 = v0;
     }
 
     @Override
@@ -69,12 +67,12 @@ public final class Container<T0> implements V0<T0> {
         }
 
         final Container<?> container = (Container<?>) o;
-        return v0.equals(container.v0);
+        return (v0 == null && container.v0 == null) || (v0 != null && v0.equals(container.v0));
     }
 
     @Override
     public int hashCode() {
-        return v0.hashCode();
+        return v0 == null ? 0 : v0.hashCode();
     }
 
     @Override
