@@ -149,6 +149,19 @@ public final class TripleTest {
     }
 
     /**
+     * Test two distinct objects wrapping null are equal.
+     */
+    @Test
+    public void testEqualsWrappingNull() {
+        final Triple<Object, String, String> triple0 = Triple.of("a", null, "c");
+        final Triple<Object, String, String> triple1 = Triple.of("a", null, "c");
+
+        assertTrue(triple0.equals(triple1));
+        assertTrue(triple1.equals(triple0));
+        assertEquals(triple0.hashCode(), triple1.hashCode());
+    }
+
+    /**
      * Test not equal to null.
      */
     @Test
@@ -175,6 +188,17 @@ public final class TripleTest {
     public void testNotEqualsDifferent() {
         final Triple<Object, String, String> triple0 = Triple.of("a", "b", "c");
         final Triple<Object, String, String> triple1 = Triple.of("a", "b", "d");
+
+        assertFalse(triple0.equals(triple1));
+    }
+
+    /**
+     * Test not equal to container with different values, one null.
+     */
+    @Test
+    public void testNotEqualsDifferentWrappingNull() {
+        final Triple<Object, String, String> triple0 = Triple.of("a", "b", "c");
+        final Triple<Object, String, String> triple1 = Triple.of("a", "b", null);
 
         assertFalse(triple0.equals(triple1));
     }

@@ -4,11 +4,11 @@
 
 package com.mattunderscore.tuples;
 
-import static java.util.Objects.requireNonNull;
-import static java.util.function.Function.identity;
-
+import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Function;
+
+import static java.util.function.Function.identity;
 
 /**
  * A 3-tuple.
@@ -24,9 +24,9 @@ public final class Triple<T0, T1, T2> implements V0<T0>, V1<T1>, V2<T2> {
     private final T2 v2;
 
     /*package*/ Triple(T0 v0, T1 v1, T2 v2) {
-        this.v0 = requireNonNull(v0);
-        this.v1 = requireNonNull(v1);
-        this.v2 = requireNonNull(v2);
+        this.v0 = v0;
+        this.v1 = v1;
+        this.v2 = v2;
     }
 
     @Override
@@ -135,15 +135,12 @@ public final class Triple<T0, T1, T2> implements V0<T0>, V1<T1>, V2<T2> {
         }
 
         final Triple<?, ?, ?> triple = (Triple<?, ?, ?>) o;
-        return v0.equals(triple.v0) && v1.equals(triple.v1) && v2.equals(triple.v2);
+        return Objects.equals(v0, triple.v0) && Objects.equals(v1, triple.v1) && Objects.equals(v2, triple.v2);
     }
 
     @Override
     public int hashCode() {
-        int result = v0.hashCode();
-        result = 31 * result + v1.hashCode();
-        result = 31 * result + v2.hashCode();
-        return result;
+        return Objects.hash(v0, v1, v2);
     }
 
     @Override
