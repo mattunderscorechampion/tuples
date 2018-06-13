@@ -143,6 +143,19 @@ public final class NTupleTest {
     }
 
     /**
+     * Test two distinct objects wrapping null are equal.
+     */
+    @Test
+    public void testEqualsWrappingNull() {
+        final NTuple tuple0 = NTuple.of("a", "b", null);
+        final NTuple tuple1 = NTuple.of("a", "b", null);
+
+        assertTrue(tuple0.equals(tuple1));
+        assertTrue(tuple1.equals(tuple0));
+        assertEquals(tuple0.hashCode(), tuple1.hashCode());
+    }
+
+    /**
      * Test not equal to null.
      */
     @Test
@@ -169,6 +182,17 @@ public final class NTupleTest {
     public void testNotEqualsDifferent() {
         final NTuple tuple0 = NTuple.of("a", "b");
         final NTuple tuple1 = NTuple.of("a", "c");
+
+        assertFalse(tuple0.equals(tuple1));
+    }
+
+    /**
+     * Test not equal to container with different values, one null.
+     */
+    @Test
+    public void testNotEqualsDifferentWrappingNull() {
+        final NTuple tuple0 = NTuple.of("a", "b", "c", "d");
+        final NTuple tuple1 = NTuple.of("a", "b", "c", null);
 
         assertFalse(tuple0.equals(tuple1));
     }
