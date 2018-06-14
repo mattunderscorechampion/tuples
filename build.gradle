@@ -46,7 +46,7 @@ jacocoTestReport {
 
 tasks.withType(JavaCompile) {
     inputs.property("moduleName", "com.mattunderscore.tuples")
-    options.compilerArgs << "-Xlint:all" << "-Werror" << "-Xlint:-requires-automatic" << "--module-path" << classpath.asPath
+    options.compilerArgs << "-Xlint:all" << "-Werror" << "-Xlint:-requires-automatic" << "-Xlint:-requires-transitive-automatic" << "--module-path" << classpath.asPath
 }
 
 tasks.withType(Checkstyle) {

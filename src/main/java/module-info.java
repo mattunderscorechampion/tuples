@@ -3,5 +3,6 @@
  */
 
 module com.mattunderscore.tuples {
-    requires jcip.annotations;
+    requires transitive jcip.annotations;
+    exports com.mattunderscore.tuples;
 }
