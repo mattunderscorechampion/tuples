@@ -4,6 +4,8 @@
 
 package com.mattunderscore.tuples;
 
+import net.jcip.annotations.Immutable;
+
 import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -15,6 +17,7 @@ import java.util.function.Function;
  * @param <T1> the type of value 1
  * @author Matt Champion 19/04/2018
  */
+@Immutable
 public final class Pair<T0, T1> implements V0<T0>, V1<T1> {
     private final T0 v0;
     private final T1 v1;

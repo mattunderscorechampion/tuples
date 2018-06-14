@@ -4,6 +4,8 @@
 
 package com.mattunderscore.tuples;
 
+import net.jcip.annotations.Immutable;
+
 import static java.util.Objects.requireNonNull;
 
 import java.util.Arrays;
@@ -17,6 +19,7 @@ import java.util.function.Function;
  *
  * @author Matt Champion 21/04/2018
  */
+@Immutable
 public final class NTuple {
     private final Object[] values;
 

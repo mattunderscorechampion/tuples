@@ -4,6 +4,8 @@
 
 package com.mattunderscore.tuples;
 
+import net.jcip.annotations.Immutable;
+
 import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -18,6 +20,7 @@ import static java.util.function.Function.identity;
  * @param <T2> the type of value 2
  * @author Matt Champion 20/04/2018
  */
+@Immutable
 public final class Triple<T0, T1, T2> implements V0<T0>, V1<T1>, V2<T2> {
     private final T0 v0;
     private final T1 v1;

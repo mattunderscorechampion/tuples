@@ -4,6 +4,8 @@
 
 package com.mattunderscore.tuples;
 
+import net.jcip.annotations.Immutable;
+
 import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -19,6 +21,7 @@ import static java.util.function.Function.identity;
  * @param <T3> the type of value 3
  * @author Matt Champion 21/04/2018
  */
+@Immutable
 public final class Quad<T0, T1, T2, T3> implements V0<T0>, V1<T1>, V2<T2>, V3<T3> {
     private final T0 v0;
     private final T1 v1;

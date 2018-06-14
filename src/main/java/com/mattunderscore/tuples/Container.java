@@ -6,6 +6,7 @@ package com.mattunderscore.tuples;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
+import net.jcip.annotations.Immutable;
 
 /**
  * A 1-tuple.
@@ -13,6 +14,7 @@ import java.util.function.Function;
  * @param <T0> the type of value 0
  * @author Matt Champion 20/04/2018
  */
+@Immutable
 public final class Container<T0> implements V0<T0> {
     private final T0 v0;
 

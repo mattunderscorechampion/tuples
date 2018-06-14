@@ -3,4 +3,5 @@
  */
 
 module com.mattunderscore.tuples {
+    requires jcip.annotations;
 }
